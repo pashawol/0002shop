@@ -1,0 +1,48 @@
+mixin card-item(x,t, pr)
+	+b.card-item
+		+e.img-wrap(href="#")
+			picture 
+				source(srcset=`img/prod-${x}.webp` media="(min-width: 1600px)" type="image/webp" )
+				source(srcset=`img/prod-${x}.jpg` media="(min-width: 1600px)" type="image/jpg" )
+				
+				// тут сделай кроп шириной   270px или чуть больше, какой там стандартный
+				source(srcset=`img/prod-${x}-md.webp` media="(min-width: 576px)" type="image/webp" )
+				source(srcset=`img/prod-${x}-md.jpg` media="(min-width: 576px)" type="image/jpg" )
+
+				// тут сделай кроп шириной   150px или чуть больше, какой там стандартный 
+				source(srcset=`img/prod-${x}-sm.webp` type="image/webp" ) 
+				img.lazy( src="#"  data-src=`img/prod-${x}-sm.jpg`, alt="") 
+		+e.DIV.caption
+			+e.DIV.title
+				.text-primary.strong COMPLI 1200
+				 
+				+e.text Piranhamat 120
+			block
+			+e.price.strong&attributes(attributes) 299,00 €
+			+e.text inkl. mStw
+			+e.btn(href="#") 
+				+icon('basket')
+	// /.card-item
+mixin s-catalog()
+	// start s-catalog
+	+b.SECTION.s-catalog.section.block-with-lazy&attributes(attributes)
+		.container
+			block
+
+				
+			.row
+				+e.col.col-lg-3.col-6
+					+card-item(1)
+				// /+e.col.col-lg-3.col-6
+				+e.col.col-lg-3.col-6
+					+card-item(2)
+				// /+e.col.col-lg-3.col-6
+					
+				+e.col.col-lg-3.col-6
+					+card-item(1)(class="text-danger")
+						.strike 299,00 €
+				// /+e.col.col-lg-3.col-6
+				+e.col.col-lg-3.col-6
+					+card-item(2)
+				// /+e.col.col-lg-3.col-6 
+	// end s-catalog

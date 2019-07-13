@@ -1,0 +1,64 @@
+mixin banner(i,t,b)
+	+b.banner-block
+		picture 
+			// чтоб не плодить млн файлов картинок, добавь source по примеру карточки товара, только кроп как тут ниже расписал
+			// source(srcset=`img/banner-${x}.webp` media="(min-width: 1600px)" type="image/webp" )
+			// source(srcset=`img/banner-${x}.jpg` media="(min-width: 1600px)" type="image/jpg" )
+			
+			// тут сделай кроп шириной   700px(в 2 раза меньше от первоначального) или чуть больше, какой там стандартный
+			// source(srcset=`img/banner-${x}-md.webp` media="(min-width: 576px)" type="image/webp" )
+			// source(srcset=`img/banner-${x}-md.jpg` media="(min-width: 576px)" type="image/jpg" )
+			 
+			// тут сделай кроп шириной   576px или чуть больше, какой там стандартный 
+			// source(srcset=`img/banner-${x}-sm.webp` type="image/webp" ) 
+			img.object-fit-js.lazy( src="#"  data-src=`img/banner-${i}.jpg`, alt="") 
+		+e.title= t
+		if b
+			+e.btn-wrap
+				+e.btn(href="#")= b
+mixin s-banner()
+	// start s-banner
+	+b.s-banner.section.block-with-lazy&attributes(attributes)
+		.container 
+			.row
+				+e.col.col-lg-6
+					+banner("1",'Fäkalienhebeanlagen für  Ihr Einfamilienhaus','hier finden Sie die passenden Abwasserhebeanlagen')
+				+e.col.col-lg-6
+					+banner("2",'Sie haben ein  Mehrfamilienhaus?','hier finden Sie die passenden Abwasserhebeanlagen')
+	// end s-banner
+
+mixin s-banner2()
+	// start s-banner
+	+b.s-banner.section.block-with-lazy&attributes(attributes)
+		.container 
+			.row
+				+e.col.col-lg-3
+					+banner("3",'KSB Hebeanlage' )
+				
+				+e.col.col-lg-6
+					+banner("4",'Grundfos Hebeanlagen','INFORMATIONSMATERIAL ANFORDERN')
+				
+				+e.col.col-lg-3
+					+banner("5",'Kessel  Hebeanlage')
+				
+				+e.col.col-lg-6
+					+banner("6",'Jung Pumpen Hebeanlagen','INFORMATIONSMATERIAL ANFORDERN')
+				
+				+e.col.col-lg-6
+					+banner("7",'HOMA Hebeanlage')
+	// end s-banner
+
+mixin s-banner3()
+	// start s-banner
+	+b.s-banner.section.block-with-lazy&attributes(attributes)
+		.container 
+			.row
+				+e.col.col-lg-6
+					+banner("8",'Rückstauschutz' )
+				+e.col.col-lg-6
+					+banner("9",' Hebeanlagen für fäkalienhaltiges  Abwasser innerhalb von Gebäuden' )
+				+e.col.col-lg-6
+					+banner("10",'Schneidwerk Abwasserpumpen' )
+				+e.col.col-lg-6
+					+banner("11",'Anschlussfertige  Kunststoff-Abwasserschächte  für Tauchpumpen' )
+	// end s-banner

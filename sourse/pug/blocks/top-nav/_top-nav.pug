@@ -1,0 +1,29 @@
+
+mixin mob-mnu()
+	
+	+b.menu-mobile--js.d-lg-none
+		+b.toggle-menu-mobile--js
+			span
+		+e.inner
+			+b.form-search
+				form
+					input(type="text")
+					button
+		
+			+mnu()
+			ul
+				li
+					+e.link-top(href='#') Kostenloser Versand ab 49€ 
+				li
+					+e.link-top(href='#') Schnelle & sichere Lieferung mit DHL 
+				li
+					+e.link-top(href='#') Hilfe & Kontakt
+			.text-right
+	//  мобильное меню
+mixin top-nav() 
+	// start top-nav
+	+b.top-nav.d-none.d-lg-block
+		.container
+			+mnu()
+					
+	// end top-nav

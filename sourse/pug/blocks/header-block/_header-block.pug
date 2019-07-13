@@ -1,0 +1,30 @@
+mixin header-block()
+	// start header-block
+	+b.header-block#header-block.section
+		.container
+			
+			+e.slider.slider--js.swiper-container
+				.swiper-wrapper
+					- for (var x = 0; x < 3; x++)
+						+e.slide--js.swiper-slide
+							picture 
+								source(srcset=`img/slide.webp` media="(min-width: 1600px)" type="image/webp" )
+								source(srcset=`img/slide.jpg` media="(min-width: 1600px)" type="image/jpg" )
+								
+								// тут сделай кроп шириной   1440px или чуть больше, какой там стандартный
+								source(srcset=`img/slide.webp` media="(min-width: 576px)" type="image/webp" )
+								source(srcset=`img/slide.jpg` media="(min-width: 576px)" type="image/jpg" )
+
+								// тут сделай кроп шириной   576px или чуть больше, какой там стандартный 
+								source(srcset=`img/slide-sm.webp` type="image/webp" )
+								img.object-fit-js(src=`img/slide-sm.jpg`, alt='')
+							+e.block
+								+e.title Abwasser-hebeanlagen
+								+e.text für jeden Anwednungszwecks  finden Sie bei uns!
+								+e.btn(href="#") JETZT MEHR LESEN
+				.swiper-pagination
+
+
+
+
+	// end header-block

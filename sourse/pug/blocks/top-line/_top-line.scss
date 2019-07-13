@@ -1,0 +1,155 @@
+.top-line {
+
+	&__head{
+    padding: rem(20) 0;
+    background-color: rgba($color: $light, $alpha: .28);
+    @include media-breakpoint-up(md) {
+
+      .container{
+        display: flex;
+        flex-wrap: wrap;
+        
+        justify-content: space-around;
+      }
+    }
+  }
+  &__body{
+    padding: rem(20) 0;
+  }
+  &__link-top{
+    display: inline-block;
+    padding: rem(4) 0;
+    color: #4ea8c3;
+    margin-left: rem(3);
+    margin-right: rem(3);
+    @include media-breakpoint-down(sm) {
+      display: none;
+    }
+  }
+  &__link{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: #001b2e;
+    text-align: center;
+    text-decoration: none !important;
+    .icon-wrap{
+      position: relative;
+      width: rem(60px);
+        height: rem(49px);
+        margin-bottom: rem(20);
+    }
+    &--basket{
+      color: $success;
+      .counter{
+        position: absolute;
+        // right: -50%;
+        // transform: translate(50%,-50%);
+        width: rem(40px);
+        height: rem(40px);
+        background-color: $success;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        right: rem(-10);
+        top: rem(-10);
+        color: #ffffff;
+        font-size: 0.8rem;
+        border-radius: 50%;
+      }
+    }
+  }
+  .icon{
+font-size: rem(44);
+color: #66af95;
+  }
+
+  &__logo{
+    display: flex;
+    align-items: center;
+    @include rfs(rem(66 *.66));
+    text-decoration: none !important;
+    img{
+      width: rem(164);
+      max-width: 100%;
+      height: auto;
+      @include media-breakpoint-up(lg) {
+
+        margin-right: rem(55);
+      }
+    }
+    strong{
+      color: #15aac6;
+      background: linear-gradient(#49b293, #15aac6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+  }
+
+  &__logo-text{
+    color: #272c3b;
+  }
+// 
+@include media-breakpoint-up(xl) {}
+
+@include media-breakpoint-up(lg) {}
+
+@include media-breakpoint-up(md) {}
+
+@include media-breakpoint-up(sm) {}
+
+@include media-breakpoint-up(xs) {}
+
+// 
+@include media-breakpoint-between(md, xl) {}
+
+// 
+@include media-breakpoint-only(xs) {}
+
+@include media-breakpoint-only(sm) {}
+
+@include media-breakpoint-only(md) {}
+
+@include media-breakpoint-only(lg) {}
+
+@include media-breakpoint-only(xl) {}
+
+// 
+@include media-breakpoint-down(xl) {}
+
+@include media-breakpoint-down(lg) {}
+
+@include media-breakpoint-down(md) {}
+
+@include media-breakpoint-down(sm) {}
+
+@include media-breakpoint-down(xs) {}
+}
+
+.form-search{
+  position: relative;
+  max-width: rem(644);
+  input{
+    border: rem(5px) solid $primary;
+    width: 100%;
+    padding: rem(20) rem(15);
+    padding-right: rem(50);
+  }
+  button{
+    background: none;
+    background-image: url(../img/search.png);
+    width: rem(32px);
+    height: rem(36px);
+    border: none;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: absolute;
+    @include a-cent(y);
+    right: rem(20);
+  }
+}

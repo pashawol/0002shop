@@ -1,0 +1,68 @@
+mixin s-contact()
+	// start s-contact
+	+b.s-contact.block-with-lazy#s-contact&attributes(attributes)
+		.container
+			+e.wrap
+				.row
+					+e.col.col-lg-7
+						+e.block--left
+							.row
+								.col-6
+									+e.group
+										+e.group-title zahluncsarten
+										.row
+											+e.col-pay.col-auto: img.res-i.lazy(src="#" data-src="img/pay-1.png", alt="")
+											+e.col-pay.col-auto: img.res-i.lazy(src="#" data-src="img/pay-2.png", alt="")
+											+e.col-pay.col-auto: img.res-i.lazy(src="#" data-src="img/pay-3.png", alt="")
+											+e.col-pay.col-auto: img.res-i.lazy(src="#" data-src="img/pay-4.png", alt="")
+											+e.col-pay.col-auto: img.res-i.lazy(src="#" data-src="img/pay-5.png", alt="")
+								.col-6
+									+e.group
+										+e.group-title versanderten
+										.row
+											+e.col-shipping.col-auto: img.res-i.lazy(src="#" data-src="img/shipping-1.png", alt="")
+											+e.col-shipping.col-auto: img.res-i.lazy(src="#" data-src="img/shipping-2.png", alt="")
+								.col-6
+									+e.group
+										+e.group-title servise
+										ul
+											li: a(href="#") Lorem, ipsum.
+											li: a(href="#") Lorem, ipsum.
+											li: a(href="#") Lorem, ipsum.
+											li: a(href="#") Lorem, ipsum.
+											li: a(href="#") Lorem, ipsum.
+											li: a(href="#") Lorem, ipsum.
+								.col-6
+									+e.group
+										+e.group-title servise
+										ul
+											li: a(href="#") Lorem, ipsum.
+											li: a(href="#") Lorem, ipsum.
+											li: a(href="#") Lorem, ipsum.
+											li: a(href="#") Lorem, ipsum.
+											li: a(href="#") Lorem, ipsum.
+											li: a(href="#") Lorem, ipsum.
+
+								.col-6
+									+e.group
+										+e.group-title sprachen
+										.row
+											+e.col-lang.col-auto: img.res-i.lazy(src="#" data-src="img/lang-1.png", alt="")
+											+e.col-lang.col-auto: img.res-i.lazy(src="#" data-src="img/lang-2.png", alt="")
+											+e.col-lang.col-auto: img.res-i.lazy(src="#" data-src="img/lang-3.png", alt="")
+											+e.col-lang.col-auto: img.res-i.lazy(src="#" data-src="img/lang-4.png", alt="")
+											+e.col-lang.col-auto: img.res-i.lazy(src="#" data-src="img/lang-5.png", alt="")
+									
+								.col-6
+									+e.group
+										.row.align-items-center
+											+e.col-shipping.col-auto: img.res-i.lazy(src="#" data-src="img/footer-i-1.png", alt="")
+											+e.col-shipping.col-auto: img.res-i.lazy(src="#" data-src="img/footer-i-2.png", alt="")
+					.col-lg
+						+e.block--right
+							.h2.strong.ttu in kontakt bleiben
+							.h4 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque, pariatur?
+							+form-wrap
+								+input("text",'KONTAKT')
+								+e.btn(type="submit") Send
+	// end s-contact

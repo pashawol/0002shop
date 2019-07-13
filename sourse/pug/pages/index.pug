@@ -1,0 +1,40 @@
+extends layout/main.pug
+
+
+include ../blocks/s-content/_s-content.pug
+include ../blocks/s-contact/_s-contact.pug
+include ../blocks/s-catalog/_s-catalog.pug
+include ../blocks/s-banner/_s-banner.pug
+
+block title
+	title title
+
+block pagecontent
+	+mob-mnu()
+	+header()
+		+top-line()
+		+top-nav()
+
+	+header-block()
+	+s-catalog()
+		+b.section-title 
+			h2.with-line
+				strong.text-success ANGEBOTE 
+				| 
+				| DER WOCHE
+	
+	+s-banner()
+	+s-catalog()
+		+b.section-title 
+			h2.with-line
+				| ABWASSERHEBEANLAGEN 
+				| 
+				strong BESTSELLER 
+	
+	+s-banner2()
+	+s-content()
+	+s-banner3()
+	//- +s-form()
+	+s-contact()
+	+footer()
+
