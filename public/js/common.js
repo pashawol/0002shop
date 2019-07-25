@@ -1,6 +1,6 @@
 var $ = jQuery;
 var btnToggle = $(".toggle-menu-mobile--js"),
-		menu = $(".menu-mobile--js")
+	menu = $(".menu-mobile--js")
 
 jQuery(document).ready(function ($) {
 	// полифил для object-fit
@@ -8,39 +8,39 @@ jQuery(document).ready(function ($) {
 	// Picture element HTML5 shiv
 	document.createElement("picture");
 	// для свг
-	svg4everybody({}); 
+	svg4everybody({});
 	JSCCommon.magnificPopupCall();
 
 	JSCCommon.tabscostume('tabs');
 
 	JSCCommon.mobileMenu();
- 
 
 
-		// slider
-		$(".section").each(function () {
-			var slider = {
-				slidesPerView: 1, 
-				spaceBetween: 0,
-				lazy: {
-					loadPrevNext: true,
-				},
-				pagination: {
-					el: $(this).find('.swiper-pagination'),
-					clickable: true,
-				},
-	
-				navigation: {
-					nextEl: $(this).find('.swiper-button-next'),
-					prevEl: $(this).find('.swiper-button-prev'),
-				},
-				loop: true,
-			}
-			var swiper2 = new Swiper($(this).find('.slider--js'), slider); 
-		});
 
-	$(".main-wrapper").after('<div class="screen" style="background-image: url(screen/main.jpg);"></div>')
- 
+	// slider
+	$(".section").each(function () {
+		var slider = {
+			slidesPerView: 1,
+			spaceBetween: 0,
+			lazy: {
+				loadPrevNext: true,
+			},
+			pagination: {
+				el: $(this).find('.swiper-pagination'),
+				clickable: true,
+			},
+
+			navigation: {
+				nextEl: $(this).find('.swiper-button-next'),
+				prevEl: $(this).find('.swiper-button-prev'),
+			},
+			loop: true,
+		}
+		var swiper2 = new Swiper($(this).find('.slider--js'), slider);
+	});
+
+	// $(".main-wrapper").after('<div class="screen" style="background-image: url(screen/main.jpg);"></div>')
+
 	// / закрыть меню при горизонтальном свайпе
 	// /закрыть/открыть мобильное меню
 
@@ -70,7 +70,7 @@ jQuery(document).ready(function ($) {
 			menu.removeClass("active");
 			$("body").removeClass("fixed");
 		}
-	} 
+	}
 
 	$(window).resize(function () {
 		heightses();
@@ -82,110 +82,138 @@ jQuery(document).ready(function ($) {
 	})
 
 	heightses();
- 
+
 	// листалка по стр
 	$(" .top-nav, .scroll-link").click(function () {
-	       var elementClick = $(this).attr("href");
-	       var destination = $(elementClick).offset().top;
+		var elementClick = $(this).attr("href");
+		var destination = $(elementClick).offset().top;
 
-	           $('html, body').animate({ scrollTop: destination }, 1100);
+		$('html, body').animate({
+			scrollTop: destination
+		}, 1100);
 
-	       return false;
-	   }); 
+		return false;
+	});
+
+
+	var galleryThumbs = new Swiper('.gallery-thumbs', {
+		// spaceBetween: 10,
+		slidesPerView: 3,
+		loop: true,
+		spaceBetween: 10,
+		// freeMode: true,
+		// loopedSlides: 5, //looped slides should be the same
+		watchSlidesVisibility: true,
+		watchSlidesProgress: true,
+		// loopedSlides: 5, //looped slides should be the same
+		// direction: 'vertical',
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+	});
+
  
- 
+			var galleryTop = new Swiper('.gallery-top', {
+				spaceBetween: 10,
+				loop: true,
+				thumbs: {
+					swiper: galleryThumbs,
+				},
+			});
+  
 });
 JSCCommon = {
 	// часть вызов скриптов здесь, для использования при AJAX
 	// функции для запуска lazy
-		// функции для запуска lazy
-		LazyFunction: function () {
-			// Для лэзи загрузки 
-	
-			document.addEventListener("DOMContentLoaded", function () {
-				var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
-				var active = false;
-	
-				const lazyLoad = function () {
-					if (active === false) {
-						active = true;
-	
-						setTimeout(function () {
-							lazyImages.forEach(function (lazyImage) {
-								var imgWrapper = lazyImage.parentNode.clientHeight + 500;
-								if (((lazyImage.getBoundingClientRect().top - imgWrapper) <= window.innerHeight && (lazyImage.getBoundingClientRect().bottom + imgWrapper) >= 0) && getComputedStyle(lazyImage).display !== "none") {
-									lazyImage.src = lazyImage.dataset.src;
-									// lazyImage.srcset = lazyImage.dataset.srcset;
-									lazyImage.classList.remove("lazy");
-	
-									lazyImages = lazyImages.filter(function (image) {
-										return image !== lazyImage;
-									});
-	
-									if (lazyImages.length === 0) {
-										document.removeEventListener("scroll", lazyLoad);
-										window.removeEventListener("resize", lazyLoad);
-										window.removeEventListener("orientationchange", lazyLoad);
-										window.addEventListener("DOMContentLoaded", lazyLoad);
-									}
+	// функции для запуска lazy
+	LazyFunction: function () {
+		// Для лэзи загрузки 
+
+		document.addEventListener("DOMContentLoaded", function () {
+			var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+			var active = false;
+
+			const lazyLoad = function () {
+				if (active === false) {
+					active = true;
+
+					setTimeout(function () {
+						lazyImages.forEach(function (lazyImage) {
+							var imgWrapper = lazyImage.parentNode.clientHeight + 500;
+							if (((lazyImage.getBoundingClientRect().top - imgWrapper) <= window.innerHeight && (lazyImage.getBoundingClientRect().bottom + imgWrapper) >= 0) && getComputedStyle(lazyImage).display !== "none") {
+								lazyImage.src = lazyImage.dataset.src;
+								// lazyImage.srcset = lazyImage.dataset.srcset;
+								lazyImage.classList.remove("lazy");
+
+								lazyImages = lazyImages.filter(function (image) {
+									return image !== lazyImage;
+								});
+
+								if (lazyImages.length === 0) {
+									document.removeEventListener("scroll", lazyLoad);
+									window.removeEventListener("resize", lazyLoad);
+									window.removeEventListener("orientationchange", lazyLoad);
+									window.addEventListener("DOMContentLoaded", lazyLoad);
 								}
-							});
-	
-							active = false;
-						}, 200);
-					}
-				};
-	
-				document.addEventListener("scroll", lazyLoad);
-				window.addEventListener("resize", lazyLoad);
-				window.addEventListener("orientationchange", lazyLoad);
-				window.addEventListener("DOMContentLoaded", lazyLoad);
-			});
-	
-	
-			// лэзи 
-			document.addEventListener("DOMContentLoaded", function () {
-				var lazyImages = [].slice.call(document.querySelectorAll(".lazy-sourse"));
-				var active = false;
-	
-				const lazyLoad = function () {
-					if (active === false) {
-						active = true;
-	
-						setTimeout(function () {
-							lazyImages.forEach(function (lazyImage) {
-								var imgWrapper = lazyImage.parentNode.clientHeight + 500;
-								if (((lazyImage.getBoundingClientRect().top - imgWrapper) <= window.innerHeight && (lazyImage.getBoundingClientRect().bottom + imgWrapper) >= 0) && getComputedStyle(lazyImage).display !== "none") {
-									// lazyImage.parentElement.style.backgroundImage = 'url(' + lazyImage.dataset.src + ')';
-									// lazyImage.src = lazyImage.dataset.src;
-									lazyImage.srcset = lazyImage.dataset.srcset;
-									// lazyImage.classList.remove("lazy");
-	
-									lazyImages = lazyImages.filter(function (image) {
-										return image !== lazyImage;
-									});
-	
-									if (lazyImages.length === 0) {
-										document.removeEventListener("scroll", lazyLoad);
-										window.removeEventListener("resize", lazyLoad);
-										window.removeEventListener("orientationchange", lazyLoad);
-										window.addEventListener("DOMContentLoaded", lazyLoad);
-									}
+							}
+						});
+
+						active = false;
+					}, 200);
+				}
+			};
+
+			document.addEventListener("scroll", lazyLoad);
+			window.addEventListener("resize", lazyLoad);
+			window.addEventListener("orientationchange", lazyLoad);
+			window.addEventListener("DOMContentLoaded", lazyLoad);
+		});
+
+
+		// лэзи 
+		document.addEventListener("DOMContentLoaded", function () {
+			var lazyImages = [].slice.call(document.querySelectorAll(".lazy-sourse"));
+			var active = false;
+
+			const lazyLoad = function () {
+				if (active === false) {
+					active = true;
+
+					setTimeout(function () {
+						lazyImages.forEach(function (lazyImage) {
+							var imgWrapper = lazyImage.parentNode.clientHeight + 500;
+							if (((lazyImage.getBoundingClientRect().top - imgWrapper) <= window.innerHeight && (lazyImage.getBoundingClientRect().bottom + imgWrapper) >= 0) && getComputedStyle(lazyImage).display !== "none") {
+								// lazyImage.parentElement.style.backgroundImage = 'url(' + lazyImage.dataset.src + ')';
+								// lazyImage.src = lazyImage.dataset.src;
+								lazyImage.srcset = lazyImage.dataset.srcset;
+								// lazyImage.classList.remove("lazy");
+
+								lazyImages = lazyImages.filter(function (image) {
+									return image !== lazyImage;
+								});
+
+								if (lazyImages.length === 0) {
+									document.removeEventListener("scroll", lazyLoad);
+									window.removeEventListener("resize", lazyLoad);
+									window.removeEventListener("orientationchange", lazyLoad);
+									window.addEventListener("DOMContentLoaded", lazyLoad);
 								}
-							});
-	
-							active = false;
-						}, 200);
-					}
-				};
-	
-				document.addEventListener("scroll", lazyLoad);
-				window.addEventListener("resize", lazyLoad);
-				window.addEventListener("orientationchange", lazyLoad);
-				window.addEventListener("DOMContentLoaded", lazyLoad);
-			});
-	
-		},
+							}
+						});
+
+						active = false;
+					}, 200);
+				}
+			};
+
+			document.addEventListener("scroll", lazyLoad);
+			window.addEventListener("resize", lazyLoad);
+			window.addEventListener("orientationchange", lazyLoad);
+			window.addEventListener("DOMContentLoaded", lazyLoad);
+		});
+
+	},
 	// /LazyFunction
 
 	magnificPopupCall: function () {
@@ -290,10 +318,9 @@ JSCCommon = {
 	},
 	// /табы  . 
 
- 
+
 
 };
 
 JSCCommon.LazyFunction();
 /***/
-

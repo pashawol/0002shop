@@ -12,37 +12,61 @@ mixin breadcrumb(...items)
 		span.breadcrumb-item.active=  items[items.length - 1]
 
 		
+//- pugination
 mixin pugin()
-	nav(aria-label='...')
-		ul.pagination.justify-content-center
-			li.page-item.disabled
-				a.page-link(href='#', tabindex='-1') 
-					i(class="fas fa-chevron-left")
-			li.page-item.disabled
-				a.page-link.d-none.d-md-block(href='#', tabindex='-1') Назад
+	//- nav(aria-label='...')
+	//- 	ul.pagination.justify-content-center
+	//- 		li.page-item.disabled
+	//- 			a.page-link(href='#', tabindex='-1') 
+	//- 				i(class="fas fa-chevron-left")
+	//- 		li.page-item.disabled
+	//- 			a.page-link.d-none.d-md-block(href='#', tabindex='-1') Назад
 
-			li.page-item
-				a.page-link(href='#') 1
-			li.page-item.active
-				a.page-link(href='#')
-					| 2 
-					span.sr-only (current)
-			li.page-item
-				a.page-link.page-link-more(href='#') ...
-			li.page-item
-				a.page-link(href='#') 3
+	//- 		li.page-item
+	//- 			a.page-link(href='#') 1
+	//- 		li.page-item.active
+	//- 			a.page-link(href='#')
+	//- 				| 2 
+	//- 				span.sr-only (current)
+	//- 		li.page-item
+	//- 			a.page-link.page-link-more(href='#') ...
+	//- 		li.page-item
+	//- 			a.page-link(href='#') 3
 
-			li.page-item
-				a.page-link.d-none.d-md-block(href='#') Дальше
-			li.page-item
-				a.page-link(href='#') 
-					i(class="fas fa-chevron-right")
+	//- 		li.page-item
+	//- 			a.page-link.d-none.d-md-block(href='#') Дальше
+	//- 		li.page-item
+	//- 			a.page-link(href='#') 
+	//- 				i(class="fas fa-chevron-right")
+	.pagination-wrapper
+		ul.page-numbers
+			li
+				span.prev.page-numbers( )
+					img(src="img/svg/prev-double.svg", alt="")
+			li
+				span.prev.page-numbers( )
+					img(src="img/svg/prev.svg", alt="")
+			li
+				span.page-numbers.current  1
+			mixin li(n)
+				li
+					a.page-numbers(href='#')= n
+			+li("1")
+			+li("2")
+			+li("3")
+			+li("4") 
+			li
+				a.next.page-numbers(href='#')
+					img(src="img/svg/next.svg", alt="")
+			li
+				a.next.page-numbers(href='#')
+					img(src="img/svg/next-double.svg", alt="")
 //- h2.yel(class="  wow fadeInUp animated " data-wow-offset="120" data-wow-duration="1.2s")  
 mixin arrow()
 	.swiper-button-hand.swiper-button-hand-next.swiper-button-next
-		+icon('chevron-right')
+		+icon('arrow-left')
 	.swiper-button-hand.swiper-button-hand-prev.swiper-button-prev
-		+icon('chevron-left')
+		+icon('arrow-right')
 		
  
 mixin soc()
@@ -71,3 +95,35 @@ mixin mnu()
 	+e.UL.nav
 		each linkPatch, linkName in nav
 			+e.LI.item: +e.A.link(href= linkPatch)= linkName
+
+
+
+//- picture with lazy
+mixin pic(bg, i,lazy, exp="jpg", media='576px')
+	mixin source(i, exp, path , lazy)
+		//- let path = 
+		if lazy
+			source(data-srcset=`img/@${path}/${i}.${exp}`  type=`image/${exp}` )&attributes(attributes) 
+		else
+			source(srcset=`img/@${path}/${i}.${exp}`  type=`image/${exp}` )&attributes(attributes) 
+	mixin img(i, exp, path , lazy)
+		if lazy
+			img(src="#" data-src=`img/${path}/${i}.${exp}`, alt="")&attributes(attributes)  
+		else
+			img(src=`img/${path}/${i}.${exp}`, alt="")&attributes(attributes)
+	// picture
+
+	picture( class= lazy)
+		if media !== 0  
+			each val in ["webp",exp] 
+				+source(i,val,`2x${ "/webp" || "" }`,lazy)(media=`(min-width: ${media} )`)
+				// crop 2x
+				+source(i,val,`1x${ "/webp" || "" }`,lazy) 
+		else 
+			+source(i,'webp',`2x/webp`,lazy) 
+			// /webp images  
+		if bg == 'bg'  
+			+img(i, exp,"@2x", lazy)(class="object-fit-js")
+		else 
+			+img(i, exp,"@2x", lazy) 
+	// /picture

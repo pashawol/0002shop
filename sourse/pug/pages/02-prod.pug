@@ -1,0 +1,50 @@
+extends layout/main.pug
+
+
+include ../blocks/s-content/_s-content.pug
+include ../blocks/s-contact/_s-contact.pug
+include ../blocks/s-catalog/_s-catalog.pug
+include ../blocks/s-banner/_s-banner.pug
+include ../blocks/s-card-head/_s-card-head.pug
+include ../blocks/s-card-body/_s-card-body.pug
+
+block title
+	title title
+
+block pagecontent
+	+mob-mnu()
+	+header()
+		+top-line()
+		+top-nav()
+	.container
+		.green-line
+			.row
+				each val in ["Kostenloser Versand ab 49 €","Kostenloser Rückversand"," Sichere Zahlungsmöglichkeiten","Geprüfter Online-Shop"]
+					.col-auto
+						+icon("check2")
+						= val
+		+breadcrumb("Start" ," Hebeanlage "," ABS Hebeanlage Piranhamat 120" )
+	+s-card-head
+	+s-card-body
+	//- +s-catalog()
+	//- 	+b.section-title 
+	//- 		h2.with-line
+	//- 			strong.text-success ANGEBOTE 
+	//- 			| 
+	//- 			| DER WOCHE
+	
+	+s-catalog()
+		+b.section-title 
+			h2.with-line
+				| ABWASSERHEBEANLAGEN 
+				| 
+				strong BESTSELLER 
+	+s-content()
+	//- +s-banner()
+	
+	//- +s-banner2()
+	+s-banner3()
+	//- +s-form()
+	+s-contact()
+	+footer()
+

@@ -2,10 +2,28 @@ mixin form-head()
 	form.js-form-validate( data-parsley-validate="") 
 		input(type='hidden', class="order", name='order', value=`Заявка  с сайта` ) 
 		block
-mixin input( t , pl)
-	+e.input-wrap.form-group
-		+e.INPUT.input.form-control(type= t placeholder= pl)&attributes(attributes)
+mixin input(placeholder,  t='text', label, name= t)
+	mixin t(t='text',placeholder, name= t)
+		if t== "textarea"
+			+e.TEXTAREA.input.form-control(placeholder= placeholder name= name)&attributes(attributes)
+		else
+			+e.INPUT.input.form-control(type= t placeholder= placeholder name= name)&attributes(attributes)
+	+e.input-wrap
+		if label
+			label
+				+e.SPAN.title= label
+				+t(t,placeholder, name)&attributes(attributes)
+		else
+			+t(t,placeholder, name)&attributes(attributes)
 	// +e.input-wrap
+mixin in-c(typ="checkbox", text, name= typ )
+	+b.LABEL.custom-input
+		+e.INPUT.input(type= typ , name= name)&attributes(attributes)
+		+e.SPAN.lab
+		if block
+			block 
+		else
+			+e.SPAN.text= text
 mixin ta(p , pl)
 	+e.input-wrap.form-group
 		label

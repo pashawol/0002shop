@@ -1,0 +1,47 @@
+mixin s-card-head()
+	// start s-card-head
+	+b.s-card-head
+		.container
+			.row
+				.col-lg-6
+					+e.sliders 
+						mixin sliders(...items) 
+							+e.slider-big.gal.gallery-top.swiper-container
+								.swiper-wrapper 
+									each item in items
+										+e.slide-big.swiper-slide
+											+e.A.img-wrap(href=`img/@2x/prod-page.jpg` )
+												+pic("","prod-page")  
+							+e.slider-sm-wrap
+								+e.slider-small.gallery-thumbs.swiper-container
+									.swiper-wrapper 
+										each item in items
+											+e.slide-small.swiper-slide
+												+e.img-wrap.__img-wrap-small( )
+													+pic("","prod-page") 
+								+arrow()
+
+						+sliders("prod-2","prod-2","prod-1","prod-2","prod-1","prod-2","prod-1","prod-2","prod-1")
+				.col-lg-6
+					+e.text-block
+						.text-right 
+							h1 JUNG-PUMPEN Fäkalienhebeanlage compli 1210/4 BW
+							+e.articul Art.Nr.: 09168
+							+e.label.text-success Sofort liefbar
+					ul
+						li Hochwertige manuelle Rückspülfilter
+						li Rückspülfilter PT-FM 40
+						li Für größerer Wohnanlagen:
+						li permaster black PT-FM 40/50
+					.text-right 
+						+e.price UVP 415,97 €
+						+e.sm-text Inkl. Steuern / zzgl. Versandkosten
+					+e.order-block.row.align-items-center.justify-content-end
+						.col-auto.mb-2 Menge:
+						.col-auto.mb-2
+							+input("","number")(value="1")
+						.col-auto.mb-2
+							+e.btn(href="#")
+								+icon('basket') 
+								span.d-none.d-sm-block IN DEN WARENKORB
+	// end s-card-head

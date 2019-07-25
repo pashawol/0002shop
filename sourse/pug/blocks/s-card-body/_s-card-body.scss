@@ -1,0 +1,67 @@
+.s-card-body {
+	 .tabs{
+		 &__caption{
+			 display: flex;
+			 flex-wrap: wrap;
+			//  justify-content: center;
+			@include media-breakpoint-up(lg) {
+
+				padding-left: rem(20);
+			}
+			border-bottom: 1px solid #000;
+			margin-bottom: rem(60);
+			// z-index: 2;
+		 }
+		 &__btn{
+			 border-radius: rem(10) rem(10) 0 0;
+			 border: 1px solid #000;
+			 font-weight: bold;
+			 
+			 padding: rem(15) rem(10);
+			 //  margin-bottom: -1px;
+			 text-align: center;
+			 @include media-breakpoint-up(lg) {
+				margin-left: rem(15);
+				margin-right: rem(15);
+				 width: auto;
+			 }
+			 width: 100%;
+			 min-width: rem(272);
+			 @include mt;
+			 cursor: pointer;
+			//  z-index: -1;
+			border-bottom: none;
+			 &:hover,
+			 &.active{
+				 background-color: $success;
+				 border-color: $success;
+				 color: #ffffff;
+			 }
+		 }
+		 h6.text-primary{
+			 font-weight: bold;
+			 color: #194c5d;
+			 padding-bottom: 2rem;
+		 }
+	 }
+	 table{
+		background-color: $light;
+		width: 100%;
+		td{
+			border-bottom: 1px solid #fff;
+			padding: rem(20) rem(20) rem(20) rem(60);
+		}
+	 }
+	@include media-breakpoint-up(xl) {}
+	@include media-breakpoint-up(lg) {}
+	@include media-breakpoint-up(md) {}
+	@include media-breakpoint-up(sm) {}
+	@include media-breakpoint-up(xs) {}
+		
+	@include media-breakpoint-down(xl) {}
+	@include media-breakpoint-down(lg) {}
+	@include media-breakpoint-down(md) {}
+	@include media-breakpoint-down(sm) {}
+	@include media-breakpoint-down(xs) {} 
+
+}
