@@ -1,5 +1,5 @@
-mixin banner(i,t,b)
-	+b.banner-block
+mixin banner(i,t,b, bm)
+	+b.banner-block(href="#")&attributes(attributes)
 		picture 
 			// чтоб не плодить млн файлов картинок, добавь source по примеру карточки товара, только кроп как тут ниже расписал
 			// source(srcset=`img/banner-${x}.webp` media="(min-width: 1600px)" type="image/webp" )
@@ -15,16 +15,18 @@ mixin banner(i,t,b)
 		+e.title= t
 		if b
 			+e.btn-wrap
-				+e.btn(href="#")= b
+				+e.btn()
+					span.d-none.d-sm-block= b
+					span.d-sm-none= bm
 mixin s-banner()
 	// start s-banner
 	+b.s-banner.section.block-with-lazy&attributes(attributes)
 		.container 
 			.row
 				+e.col.col-lg-6
-					+banner("1",'Fäkalienhebeanlagen für  Ihr Einfamilienhaus','hier finden Sie die passenden Abwasserhebeanlagen')
+					+banner("1",'Fäkalienhebeanlagen für  Ihr Einfamilienhaus','hier finden Sie die passenden Abwasserhebeanlagen','JETZT MEHR LESEN')
 				+e.col.col-lg-6
-					+banner("2",'Sie haben ein  Mehrfamilienhaus?','hier finden Sie die passenden Abwasserhebeanlagen')
+					+banner("2",'Sie haben ein  Mehrfamilienhaus?','hier finden Sie die passenden Abwasserhebeanlagen','JETZT MEHR LESEN')
 	// end s-banner
 
 mixin s-banner2()
@@ -32,20 +34,20 @@ mixin s-banner2()
 	+b.s-banner.section.block-with-lazy&attributes(attributes)
 		.container 
 			.row
-				+e.col.col-lg-3
-					+banner("3",'KSB Hebeanlage' )
+				+e.col--category.col-lg-3
+					+banner("3",'KSB Hebeanlage' )(class="banner-block--category" style="background-color:#a1c2da;")
 				
-				+e.col.col-lg-6
-					+banner("4",'Grundfos Hebeanlagen','INFORMATIONSMATERIAL ANFORDERN')
+				+e.col--category.col-lg-6
+					+banner("4",'Grundfos Hebeanlagen','INFORMATIONSMATERIAL ANFORDERN')(class="banner-block--category" style="background-color: #98c564;")
 				
-				+e.col.col-lg-3
-					+banner("5",'Kessel  Hebeanlage')
+				+e.col--category.col-lg-3
+					+banner("5",'Kessel  Hebeanlage')(class="banner-block--category" style="background-color: #4d86bd;")
 				
-				+e.col.col-lg-6
-					+banner("6",'Jung Pumpen Hebeanlagen','INFORMATIONSMATERIAL ANFORDERN')
+				+e.col--category.col-lg-6
+					+banner("6",'Jung Pumpen Hebeanlagen','INFORMATIONSMATERIAL ANFORDERN')(class="banner-block--category" style="background-color: #f3ba0f;")
 				
-				+e.col.col-lg-6
-					+banner("7",'HOMA Hebeanlage')
+				+e.col--category.col-lg-6
+					+banner("7",'HOMA Hebeanlage')(class="banner-block--category" style="background-color: #797979;")
 	// end s-banner
 
 mixin s-banner3()
@@ -56,9 +58,9 @@ mixin s-banner3()
 				+e.col.col-lg-6
 					+banner("8",'Rückstauschutz' )
 				+e.col.col-lg-6
-					+banner("9",' Hebeanlagen für fäkalienhaltiges  Abwasser innerhalb von Gebäuden' )
+					+banner("9",' Hebeanlagen für fäkalienhaltiges  Abwasser innerhalb von Gebäuden','JETZT MEHR LESEN','JETZT MEHR LESEN' )
 				+e.col.col-lg-6
-					+banner("10",'Schneidwerk Abwasserpumpen' )
+					+banner("10",'Schneidwerk Abwasserpumpen','JETZT MEHR LESEN','JETZT MEHR LESEN' )
 				+e.col.col-lg-6
-					+banner("11",'Anschlussfertige  Kunststoff-Abwasserschächte  für Tauchpumpen' )
+					+banner("11",'Anschlussfertige  Kunststoff-Abwasserschächte  für Tauchpumpen','JETZT MEHR LESEN','JETZT MEHR LESEN' )
 	// end s-banner

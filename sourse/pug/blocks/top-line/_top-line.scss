@@ -2,9 +2,11 @@
 
 	&__head{
     padding: rem(20) 0;
+    @include media-breakpoint-up(sm) {
     background-color: rgba($color: $light, $alpha: .28);
+    }
     @include media-breakpoint-up(md) {
-
+      
       .container{
         display: flex;
         flex-wrap: wrap;
@@ -15,6 +17,11 @@
   }
   &__body{
     padding: rem(20) 0;
+    position: relative;
+    @include media-breakpoint-down(xs) {
+      
+      background-color: rgba($color: $light, $alpha: .28);
+    }
   }
   &__link-top{
     display: inline-block;
@@ -62,12 +69,32 @@
       }
     }
   }
+  @include media-breakpoint-down(xs) {
+    .row{
+      @include roww(20);
+    }
+    .container{
+      padding-left: rem(20);
+      padding-right: rem(20);
+    }
+  }
   .icon{
+    @include media-breakpoint-down(xs) {
+
+      font-size: rem(54);
+    }
 font-size: rem(44);
 color: #66af95;
   }
 
   &__logo{
+    @include media-breakpoint-down(xs) {
+      img{
+        margin-right: rem(30);
+      }
+      // text-align: center;
+      justify-content: center;
+    }
     display: flex;
     align-items: center;
     @include rfs(rem(66 *.66));

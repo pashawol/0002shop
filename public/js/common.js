@@ -267,26 +267,26 @@ JSCCommon = {
 		// закрыть/открыть мобильное меню
 
 		btnToggle.click(function () {
-
+			
 			btnToggle.toggleClass("on");
 			// $("body").toggleClass("fixed");
 			menu.toggleClass("active");
-			$("body, html").toggleClass("fixed");
+			// $("body, html").toggleClass("fixed");
 			return false;
 		});
 		// $('.menu-mobile--js ul li a').on('click', function () {
 		// 	$(".menu-mobile--js .toggle-mnu").click();
 		// });
 
-		$(document).mouseup(function (e) {
-			var container = $(".menu-mobile--js.active");
-			if (container.has(e.target).length === 0) {
-				btnToggle.removeClass("on");
-				// $("body").toggleClass("fixed");
-				menu.removeClass("active");
-				$("body, html").removeClass("fixed");
-			}
-		});
+		// $(document).mouseup(function (e) {
+		// 	var container = $(".menu-mobile--js.active");
+		// 	if (container.has(e.target).length === 0) {
+		// 		btnToggle.removeClass("on");
+		// 		// $("body").toggleClass("fixed");
+		// 		menu.removeClass("active");
+		// 		// $("body, html").removeClass("fixed");
+		// 	}
+		// });
 		// закрыть меню при горизонтальном свайпе
 		$('.menu-mobile--js.active').swipe({
 			swipe: function (event, direction, distance, duration, fingerCount, fingerData) {

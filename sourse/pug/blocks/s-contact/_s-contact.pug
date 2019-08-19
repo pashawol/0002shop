@@ -2,7 +2,14 @@ mixin s-contact()
 	// start s-contact
 	+b.s-contact.block-with-lazy#s-contact&attributes(attributes)
 		.container
-			+e.wrap
+			.d-sm-none
+				+e.mob-link(href="#") zahluncsarten >
+				+e.mob-link(href="#") versanderten >
+				+e.mob-link(href="#") servise >
+				+e.mob-link(href="#") Link >
+				+e.mob-link(href="#") Link >
+				+e.mob-link(href="#") Link >
+			+e.wrap.d-none.d-sm-block
 				.row
 					+e.col.col-lg-7
 						+e.block--left
@@ -58,7 +65,7 @@ mixin s-contact()
 										.row.align-items-center
 											+e.col-shipping.col-auto: img.res-i.lazy(src="#" data-src="img/footer-i-1.png", alt="")
 											+e.col-shipping.col-auto: img.res-i.lazy(src="#" data-src="img/footer-i-2.png", alt="")
-					.col-lg
+					.col-lg.d-none.d-sm-block
 						+e.block--right
 							.h2.strong.ttu in kontakt bleiben
 							.h4 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque, pariatur?

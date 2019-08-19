@@ -8,8 +8,12 @@
 		}
 		@include media-breakpoint-up(sm) {
 			padding: rem(130) rem(170);
+			margin-left: 0;
+			margin-right: 0;
 
 		}
+		margin-left: -7px;
+		margin-right: -7px;
 		padding: rem(30);
 		color: #ffffff;
 	}

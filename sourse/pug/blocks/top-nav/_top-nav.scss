@@ -68,17 +68,33 @@ $h: rem(8);
 	right: 0;  
 	top: $h;
 	cursor: pointer;
+	@include media-breakpoint-down(xs) {
+		background-color: $primary;
+		width: rem(80);
+		height: rem(80);
+		padding-left: rem(10);
+		padding-top: rem(15);
+		border-radius: rem(10);
 
+	}
 
 	span:after,
 	span:before {
 		content: "";
 		position: absolute;
 		left: 0;
+			@include media-breakpoint-down(xs) {
+
+				top: $h*2 * 1.4;
+			}
 		top: $h*2;
 	}
 
 	span:after {
+			@include media-breakpoint-down(xs) {
+
+				top: $h * 4 * 1.4;
+			}
 		top: $h * 4;
 	}
 
@@ -95,39 +111,42 @@ $h: rem(8);
 		width: 1em;
 		height: $h;
 		background-color: $primary;
+		@include media-breakpoint-down(xs) {
+			background-color: #ffffff;
+			height: 4px;
+		}
 		transition: all 0.3s;
 		backface-visibility: hidden;
 		border-radius: 6px;
 	}
 
-	&.on {
-		opacity: 0;
-		z-index: -1;
-	}
+	// &.on {
+	// 	opacity: 0;
+	// 	z-index: -1;
+	// }
 
 	&.on span {
 		background-color: transparent;
 	}
 
 	&.on span:before {
-		transform: rotate(45deg) translate(rem(-1), 0px);
+		transform: rotate(45deg) translate(rem(-3), 1px);
 	}
 
 	&.on span:after {
-		transform: rotate(-45deg) translate(rem(10), em(-4));
+		transform: rotate(-45deg) translate(rem(14), em(-8));
 	}
 }
 
 .menu-mobile {
-	position: fixed !important;
-	z-index: 999;
-	max-width: 85%;
-	height: 101vh;
-	width: 280px;
-	top: 0;
+	// position: fixed !important;
+	position: absolute;
+	z-index: 999; 
+	width: 100%;
+	top: 100%;
 	// left: 0;
-	right: 0;
-	transform: translate(100%, 0);
+	left: 0;
+	display: none;
 	@include mt(.6);
 	will-change: transform;
 	.form-search{
@@ -138,15 +157,16 @@ $h: rem(8);
 		// padding-right: 10px;
 	}
 	&__inner {
-		background-color: #444;
-		padding: 5% 0;
+		background-color: #242424;
+		// padding: 5% 0;
 		overflow-y: auto;
 		-webkit-overflow-scrolling: touch;
-		height: 100%;
+		// height: 100%;
 	}
 
 	&.active {
-		transform: translate(0, 0);
+		// transform: translate(0, 0);
+		display: block;
 
 		.toggle-menu-mobile {
 			opacity: 1;
@@ -188,11 +208,11 @@ $h: rem(8);
 	li {
 		display: block;
 		margin: 0;
-		border-top: 1px solid rgba(255, 255, 255, .13);
+		border-bottom: 1px solid #c3e3de;
 
 		a {
 			// font-size: 16px;
-
+			color: #c3e3de !important;
 			padding: rem(10px);
 			display: block;
  

@@ -3,6 +3,11 @@
 		padding-top: 0;
 	&__col{
 		margin-bottom: rem(60);
+		@include media-breakpoint-down(xs) {
+			&--category{
+				margin-bottom: 0;
+			}
+		} 
 	}
 	@include media-breakpoint-up(xl) {}
 	@include media-breakpoint-up(lg) {}
@@ -32,6 +37,27 @@
 
 .banner-block{
 	min-height: 100%;
+	color: #ffffff !important;
+	text-decoration: none !important;
+	@include media-breakpoint-down(xs) {
+		margin-left: -7px;
+		margin-right: -7px;
+		.banner-block__title{
+
+			text-shadow: none;
+		}
+		
+		&--category{
+			picture{
+				display: none;
+			}
+			height: auto;
+			margin-bottom: 0;
+			.banner-block__btn{
+				display: none;
+			}
+		}
+	} 
 	@include media-breakpoint-up(sm) {
 
 		height: rem(944);
@@ -72,6 +98,13 @@
 		@extend .btn;
 		@extend .btn-lg;
 		@extend .btn-success;
+		@include media-breakpoint-down(xs) {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			max-width: rem(460);
+			margin-bottom: rem(-60);
+		} 
 	}
 	&__btn-wrap{
 		text-align: right;

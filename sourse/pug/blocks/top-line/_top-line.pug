@@ -2,7 +2,13 @@ mixin top-line()
 	// start .top-line
 	+b.top-line.block-with-lazy
 		+e.head
-			.container
+			.container.d-sm-none.text-center
+				+e.logo(href="#")
+							img(src="img/logo.png", alt="")
+							+e.logo-text
+								strong Abwasser
+								| hebeanlage.com
+			.container.d-none.d-sm-flex
 				+e.link-top(href='#') Kostenloser Versand ab 49€ 
 				+e.link-top(href='#') Schnelle & sichere Lieferung mit DHL 
 				+e.link-top(href='#') Hilfe & Kontakt
@@ -11,7 +17,10 @@ mixin top-line()
 		+e.body
 			.container
 				.row
-					.col-md-auto.col.align-self-center
+					.col-md-auto.col.align-self-center.d-sm-none
+						+b.toggle-menu-mobile--js
+							span
+					.col-md-auto.col.align-self-center.d-none.d-sm-block
 						+e.logo(href="#")
 							img(src="img/logo.png", alt="")
 							+e.logo-text.d-none.d-lg-block
@@ -28,7 +37,7 @@ mixin top-line()
 								+e.link(href="#")
 									.icon-wrap
 										+icon("web")
-									+e.link-text DE  
+									+e.link-text.d-none.d-sm-block DE  
 							.col-auto
 								+e.link(href="#")
 									.icon-wrap
@@ -45,4 +54,5 @@ mixin top-line()
 										+icon("basket")
 										.counter 1
 									+e.link-text.d-none.d-lg-block Warenkorb
+			+mob-mnu()
 	// end .top-line
