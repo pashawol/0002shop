@@ -444,51 +444,51 @@ img.lazy{
 
 
 
-@include media-breakpoint-up(xxxxl) {
-	$grid-gutter-width: 37px;
-	.container {
-		padding-left: $grid-gutter-width;
-		padding-right: $grid-gutter-width;
-	}
-	.row{
-		margin-left: -$grid-gutter-width;
-		margin-right: -$grid-gutter-width;
-		>*{
-			padding-left: $grid-gutter-width;
-			padding-right: $grid-gutter-width;
-		}
-	}
-}
-@include media-breakpoint-up(xxxl) {
-	$grid-gutter-width: 25px;
-	.container {
-		padding-left: $grid-gutter-width;
-		padding-right: $grid-gutter-width;
-	}
-	.row{
-		margin-left: -$grid-gutter-width;
-		margin-right: -$grid-gutter-width;
-		>*{
-			padding-left: $grid-gutter-width;
-			padding-right: $grid-gutter-width;
-		}
-	}
-}
-@include media-breakpoint-up(xxxl) {
-	$grid-gutter-width: 20px;
-	.container {
-		padding-left: $grid-gutter-width;
-		padding-right: $grid-gutter-width;
-	}
-	.row{
-		margin-left: -$grid-gutter-width;
-		margin-right: -$grid-gutter-width;
-		>*{
-			padding-left: $grid-gutter-width;
-			padding-right: $grid-gutter-width;
-		}
-	}
-}
+// @include media-breakpoint-up(xxxxl) {
+// 	// $grid-gutter-width: 37px;
+// 	.container {
+// 		padding-left: $grid-gutter-width;
+// 		padding-right: $grid-gutter-width;
+// 	}
+// 	.row{
+// 		margin-left: -$grid-gutter-width;
+// 		margin-right: -$grid-gutter-width;
+// 		>*{
+// 			padding-left: $grid-gutter-width;
+// 			padding-right: $grid-gutter-width;
+// 		}
+// 	}
+// }
+// @include media-breakpoint-up(xxxl) {
+// 	// $grid-gutter-width: 25px;
+// 	.container {
+// 		padding-left: $grid-gutter-width;
+// 		padding-right: $grid-gutter-width;
+// 	}
+// 	.row{
+// 		margin-left: -$grid-gutter-width;
+// 		margin-right: -$grid-gutter-width;
+// 		>*{
+// 			padding-left: $grid-gutter-width;
+// 			padding-right: $grid-gutter-width;
+// 		}
+// 	}
+// }
+// @include media-breakpoint-up(xxxl) {
+// 	// $grid-gutter-width: 20px;
+// 	.container {
+// 		padding-left: $grid-gutter-width;
+// 		padding-right: $grid-gutter-width;
+// 	}
+// 	.row{
+// 		margin-left: -$grid-gutter-width;
+// 		margin-right: -$grid-gutter-width;
+// 		>*{
+// 			padding-left: $grid-gutter-width;
+// 			padding-right: $grid-gutter-width;
+// 		}
+// 	}
+// }
 
 @include media-breakpoint-down(xs) {
 	$grid-gutter-width: 7px;
@@ -524,7 +524,7 @@ html {
 		}
 		
 	@include media-breakpoint-up(xxxl)  {
-		font-size: 20px;
+		// font-size: 20px;
 		}
 		
 	@include media-breakpoint-up(xl)  {
